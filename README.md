@@ -24,23 +24,15 @@ The data was divided into 20-frame sequences, with window shift by 10 frames (10
 
 
 ## Results
-TBD
 
-Test Accuracy: 
+Test Accuracy: 95.93%
 
-Test Loss (cross-entropy):
-
+TDB
 F1:
 
 Precission:
 
 Recall:
-
-
-
-**Training and Test Graphs**
-TBD
-
 
 
 ## Usage
