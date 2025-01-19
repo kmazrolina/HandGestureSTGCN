@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=STG_CN_training
+#SBATCH --job-name=STGCN_Hand_training
 #SBATCH --time=24:00:00
 #SBATCH --account=plgrobot-gpu-a100
 #SBATCH --partition=plgrid-gpu-a100
@@ -14,6 +14,6 @@ source ../venv/bin/activate
 cache_path="/net/pr2/projects/plgrid/plggrai/kzrobek/MindEyeV2/.cache"
 export XDG_CACHE_HOME=${cache_path}
 
-jupyter nbconvert IPN_Hand_STGCN.ipynb --to python
+jupyter nbconvert Train_STGCN.ipynb --to python
 
-python IPN_Hand_STGCN.py
+python Train_STGCN.py
