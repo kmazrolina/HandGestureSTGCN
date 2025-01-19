@@ -60,8 +60,7 @@ if(__name__ == "__main__"):
         video_id = annot.video
         class_end_frame = int(annot.t_end)
         class_start_frame = int(annot.t_start)
-        labels_data.append(class_dict[annot.label])
-        vid_data = []
+        
         
         # Iterate over time windows in given gesture
         for gesture_start_frame in range(class_start_frame, class_end_frame + 1, offset):
@@ -69,6 +68,7 @@ if(__name__ == "__main__"):
             if (gesture_start_frame + sequence_len) > (class_end_frame + 1):
                 break
             else:
+                seq_data = []
                 #iterate over frames in window
                 for frame_num in range(gesture_start_frame, gesture_start_frame + sequence_len + 1):
                     frame_file = f"{data_path}/frames/{video_id}/{video_id}_{str(frame_num).zfill(6)}.jpg"
@@ -88,12 +88,19 @@ if(__name__ == "__main__"):
                         keypoints = []
                         for hand_landmarks in results.multi_hand_landmarks:
                             for landmark in hand_landmarks.landmark:
-                                keypoints.extend([landmark.x, landmark.y])  # Collect x, y (normalized values)
-                        vid_data.append(keypoints)
+                                keypoints.append([landmark.x, landmark.y, landmark.z])  # Collect x, y, z (normalized values)  # Collect x, y (normalized values)
+                        seq_data.append(keypoints)
                     else:
                         hand_not_detected +=1
+                if(len(seq_data) == sequence_len):
+                    #only append homogenous data
+                    graph_data.append(seq_data)
+                    print(graph_data)
+                    labels_data.append(class_dict[annot.label])
+                    
         
         print(f'Processed videos: {round(((vid_count / num_vids) * 100), 2 )} %') 
+        #clear_output(wait=True)
         
         #save intermediate steps due to long execution time
         if (vid_count % step_save == 0): 
@@ -104,4 +111,5 @@ if(__name__ == "__main__"):
     # Save graph data to disk  
     np.save(f'{data_path}/graph_data.npy',np.array(graph_data))
     np.save(f'{data_path}/labels_data.npy',np.array(labels_data))
+
     
