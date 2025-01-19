@@ -95,12 +95,10 @@ if(__name__ == "__main__"):
                 if(len(seq_data) == sequence_len):
                     #only append homogenous data
                     graph_data.append(seq_data)
-                    print(graph_data)
                     labels_data.append(class_dict[annot.label])
                     
         
         print(f'Processed videos: {round(((vid_count / num_vids) * 100), 2 )} %') 
-        #clear_output(wait=True)
         
         #save intermediate steps due to long execution time
         if (vid_count % step_save == 0): 
