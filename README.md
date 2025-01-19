@@ -24,6 +24,8 @@ The data was divided into 20-frame sequences, with window shift by 10 frames (10
 
 
 ## Results
+TBD
+
 Test Accuracy: 
 
 Test Loss (cross-entropy):
@@ -37,16 +39,16 @@ Recall:
 
 
 **Training and Test Graphs**
-![train_n_test](pic/train_test_graph.png)
+TBD
 
 
 
 ## Usage
 ### Quick Start
+TBD 
+Use [this google colab notebook]() for quick inference using pretrained model.
 
-Use this google colab notebook for quick inference using pretrained model.
-
-You can download prerained weights (classification of for three classes: Point, Click and Throw Up) from [this huggingface repo]().
+You can download prerained weights (classification of for three classes: Point, Click and Throw Up) from [this huggingface repo](https://huggingface.co/kmazrolina/HandGestureSTGCN).
 
 
 ### Train and evaluate
@@ -57,5 +59,7 @@ You can download prerained weights (classification of for three classes: Point, 
 
 3. Run `Infer_and_Eval.ipynb` for inference and evaluation.
 
-
+## Resources
+- Benitez-Garcia, Gibran, et al. "Ipn hand: A video dataset and benchmark for real-time continuous hand gesture recognition." 2020 25th international conference on pattern recognition (ICPR). IEEE, 2021.
+- Yu, Bing, Haoteng Yin, and Zhanxing Zhu. "Spatio-temporal graph convolutional networks: A deep learning framework for traffic forecasting." [arXiv preprint arXiv:1709.04875 (2017)](https://arxiv.org/abs/1709.04875).
 
