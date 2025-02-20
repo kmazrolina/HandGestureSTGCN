@@ -1,0 +1,10 @@
+.ipynb_checkpoints/
+*.pyc
+train_logs/
+data/
+slurm/
+wandb/
+*.npy
+*.out
+__pycache__/*
+.DS_STORE
